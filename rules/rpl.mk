@@ -1,7 +1,7 @@
 LIBPATHS  := -L$(WUT_ROOT)/lib
-CFLAGS    := -I$(WUT_ROOT)/include -fno-builtin -ffreestanding
+CFLAGS    := -I$(WUT_ROOT)/include -fno-builtin -ffreestanding -Qn
 CXXFLAGS  := $(CFLAGS)
-LDFLAGS   := -nostdlib -nostartfiles -T $(WUT_ROOT)/rules/rpl.ld -pie -fPIE -z common-page-size=64 -z max-page-size=64 -lcrt -lcoreinit
+LDFLAGS   := -nostdlib -T $(WUT_ROOT)/rules/rpl.ld -r -z common-page-size=64 -z max-page-size=64 -lcoreinit -lcrt
 ELF2RPL   := $(WUT_ROOT)/bin/elf2rpl
 
 include $(WUT_ROOT)/rules/base.mk
